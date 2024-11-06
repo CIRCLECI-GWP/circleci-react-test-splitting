@@ -19,11 +19,7 @@ jobs:
           command: |
             # Capture test files and split them by timing
             TEST_FILES=$(circleci tests glob "src/__tests__/*.js" | circleci tests split --split-by=timings)
-            npm test $TEST_FILES -- --reporters=default --reporters=jest-junit
-          environment:
-            # Set environment variables to configure jest-junit output
-            JEST_JUNIT_OUTPUT_DIR: "./junit"
-            JEST_JUNIT_OUTPUT_NAME: "junit.xml"
+            npm test $TEST_FILES
       - run:
           name: Copy JUnit Report
           command: cp ./junit/junit.xml ~/junit/
