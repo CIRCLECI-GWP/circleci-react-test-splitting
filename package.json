@@ -90,7 +90,14 @@
     ],
     "reporters": [
       "default",
-      "jest-junit"
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "./junit",
+          "outputName": "junit.xml",
+          "addFileAttribute": "true"
+        }
+      ]
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
